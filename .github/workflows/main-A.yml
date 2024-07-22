@@ -1,0 +1,18 @@
+name: Update Main A
+on:
+  push:
+    branches: [ main-A ]
+jobs:
+  synchronization:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the source repository
+        uses: actions/checkout@v2
+
+      - name: Push changes to another repository
+        env:
+          TARGET_REPO_PAT: ${{ secrets.TARGET_REPO_PAT }}
+        run: |
+          git remote add target https://hendraempore:${{ secrets.TARGET_REPO_PAT }}@github.com/hendraempore/test-B.git
+          git push target main-A
