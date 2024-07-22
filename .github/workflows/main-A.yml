@@ -22,5 +22,5 @@ jobs:
         env:
           TARGET_REPO_PAT: ${{ secrets.TARGET_REPO_PAT }}
         run: |
-          git remote add target https://hendraempore:${{ secrets.TARGET_REPO_PAT }}@github.com/hendraempore/test-B.git
+          git remote add target https://username:${{ secrets.TARGET_REPO_PAT }}@github.com/hendraempore/test-B.git
           git push target main-A
