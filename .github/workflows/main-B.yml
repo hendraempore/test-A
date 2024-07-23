@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - name: Checkout Source Repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
       with:
         repository: hendraempore/test-B
         ref: main-B
@@ -26,9 +26,9 @@ jobs:
 
     - name: Fetch and Merge Changes from Target Repository
       run: |
-        git fetch target main-B
+        git fetch origin/main-B
         git checkout target/main-B
-        git reset --hard origin/main-B
+        git merge origin/main-B --allow-unrelated-histories
 
     - name: Push Changes
       run: |
