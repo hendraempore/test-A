@@ -10,7 +10,7 @@ jobs:
     - name: Checkout Source Repository
       uses: actions/checkout@v2
       with:
-        repository: your-username/active-repo
+        repository: hendraempore/test-A
         ref: main-A
 
     - name: Set up Git
