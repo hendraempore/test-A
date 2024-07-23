@@ -4,7 +4,7 @@ on:
     branches: [ main-B ]
 jobs:
   sync:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Source Repository
