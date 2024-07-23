@@ -28,7 +28,7 @@ jobs:
       run: |
         git fetch origin-dev main-B
         git checkout origin-dev/main-B
-        git merge origin/main-B --allow-unrelated-histories
+        git merge origin/main-B
 
     - name: Push Changes
       run: |
