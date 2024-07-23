@@ -8,9 +8,9 @@ jobs:
 
     steps:
     - name: Checkout Source Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
-        repository: hendraempore/test-B
+        repository: hendraempore/test-A
         ref: main-A
 
     - name: Set up Git
@@ -19,7 +19,7 @@ jobs:
         git config --global user.email 'hendra@empore.co.id'
 
     - name: Add Target Repository
-      run: git remote add target https://github.com/hendraempore/test-A.git
+      run: git remote add target https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-B.git
 
     - name: Push Changes
       run: |
