@@ -23,7 +23,7 @@ jobs:
         git config --global core.logallrefupdates true
         git config --global core.symlinks false
         git config --global core.ignorecase true
-        git config --global core.autocrlf true
+        git config --global core.autocrlf false
 
     - name: Remove Extra Headers
       run: git config --unset-all http.https://github.com/.extraheader
