@@ -28,10 +28,10 @@ jobs:
       run: |
         git fetch target main-B
         git checkout target/main-B
-        git merge main-B --force
+        git reset --hard origin/main-B
 
     - name: Push Changes
       run: |
-        git push target main-B
+        git push target main-B --force
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
