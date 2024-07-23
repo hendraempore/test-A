@@ -24,10 +24,13 @@ jobs:
     - name: Add Target Repository
       run: git remote add target https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-A.git
 
-    
-
-    - name: Force Push Changes
+    - name: Fetch and Merge Changes from Target Repository
       run: |
-        git push target main-B --force
+        git fetch
+        git merge origin/main-B --allow-unrelated-histories
+
+    - name: Push Changes
+      run: |
+        git push target main-B
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
