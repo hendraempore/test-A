@@ -25,7 +25,7 @@ jobs:
       run: git remote add target https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-B.git
 
     - name: Pull Changes from Target Repository
-      run: git pull target main-A
+      run: git pull target main-A --rebase
 
     - name: Push Changes
       run: |
