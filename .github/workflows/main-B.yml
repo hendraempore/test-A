@@ -26,5 +26,3 @@ jobs:
     - name: Push Changes
       run: |
         git push origin main-B
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
