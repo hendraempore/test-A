@@ -32,6 +32,6 @@ jobs:
 
     - name: Push Changes
       run: |
-        git push target main-B --force
+        git push --force
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
