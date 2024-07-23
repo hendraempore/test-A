@@ -22,7 +22,10 @@ jobs:
       run: git config --unset-all http.https://github.com/.extraheader
 
     - name: Add Target Repository
-      run: git remote add target https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-B.git
+      run: git remote add target https://github.com/hendraempore/test-A.git
+
+    - name: Pull Changes from Target Repository
+      run: git pull target main-A
 
     - name: Push Changes
       run: |
