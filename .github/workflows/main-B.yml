@@ -6,14 +6,14 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Target Repository
+    - name: Checkout target repository
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
         repository: hendraempore/test-B
         ref: main-B
         token: ${{ secrets.GH_TOKEN }}
-    - name: Merge Update
+    - name: Merge update
       run: |
         git remote add source https://github.com/hendraempore/test-A.git
         git fetch source main-B
