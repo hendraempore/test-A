@@ -17,13 +17,6 @@ jobs:
       run: |
         git config --global user.name 'hendraempore'
         git config --global user.email 'hendra@empore.co.id'
-        git config --global core.repositoryformatversion 0
-        git config --global core.filemode false
-        git config --global core.bare false
-        git config --global core.logallrefupdates true
-        git config --global core.symlinks false
-        git config --global core.ignorecase true
-        git config --global core.autocrlf false
 
     - name: Remove Extra Headers
       run: git config --unset-all http.https://github.com/.extraheader
@@ -31,11 +24,7 @@ jobs:
     - name: Add Target Repository
       run: git remote add target https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-B.git
 
-    - name: Fetch and Merge Changes from Target Repository
-      run: |
-        git fetch target main-B
-        git checkout target/main-B
-        git merge main-B --allow-unrelated-histories
+    
 
     - name: Push Changes
       run: |
