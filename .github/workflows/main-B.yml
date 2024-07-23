@@ -10,7 +10,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-        repository: hendraempore/test-B
+        repository: https://github.com/hendraempore/test-B.git
         ref: main-B
         token: ${{ secrets.GH_TOKEN }}
     - name: Merge update
