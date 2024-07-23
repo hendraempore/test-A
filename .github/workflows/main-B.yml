@@ -14,12 +14,8 @@ jobs:
         repository: hendraempore/test-B
         ref: main-B
         token: ${{ secrets.GH_TOKEN }}
-
-    - name: Add Target Repository
-      run: git remote add target https://github.com/hendraempore/test-A.git
-
-    - name: Fetch and Merge Changes from Target Repository
-      run: |
-        git fetch target main-B
-        git merge target/main-B
-        git push origin main-B
+        script: |
+          git remote add source https://github.com/hendraempore/test-A.git
+          git fetch source main-B
+          git merge source/main-B
+          git push origin main-B
