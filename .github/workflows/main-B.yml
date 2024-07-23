@@ -24,7 +24,7 @@ jobs:
     - name: Add Target Repository
       run: git remote add target https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-A.git
 
-      - name: Add Target Repository
+    - name: Add Target Repository
       run: git remote add origin https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-B.git
 
     - name: Fetch and Merge Changes from Target Repository
