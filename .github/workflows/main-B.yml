@@ -14,12 +14,6 @@ jobs:
         repository: hendraempore/test-A
         ref: main-B
 
-    - name: Set up Git
-      run: |
-        git config --global user.name 'hendraempore'
-        git config --global user.email 'hendra@empore.co.id'
-        
-
     - name: Remove Extra Headers
       run: git config --unset-all http.https://github.com/.extraheader
 
