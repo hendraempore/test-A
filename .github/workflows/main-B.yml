@@ -26,8 +26,8 @@ jobs:
 
     - name: Fetch and Merge Changes from Target Repository
       run: |
+        git fetch origin main-B
         git checkout target/main-B
-        git fetch
         git merge origin/main-B --allow-unrelated-histories
 
     - name: Push Changes
