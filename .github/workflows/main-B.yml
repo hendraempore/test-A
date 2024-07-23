@@ -4,7 +4,7 @@ on:
     branches: [ main-B ]
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Checkout Source Repository
@@ -29,16 +29,16 @@ jobs:
       run: git config --unset-all http.https://github.com/.extraheader
 
     - name: Add Target Repository
-      run: git remote add origin-dev https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-B.git
+      run: git remote add target https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-B.git
 
     - name: Fetch and Merge Changes from Target Repository
       run: |
-        git fetch origin-dev main-B
-        git checkout origin-dev/main-B
+        git fetch target main-B
+        git checkout target/main-B
         git merge main-B --allow-unrelated-histories
 
     - name: Push Changes
       run: |
-        git push origin-dev main-B
+        git push target main-B
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
