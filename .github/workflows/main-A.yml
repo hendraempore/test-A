@@ -17,7 +17,7 @@ jobs:
       run: |
         git config --global user.name 'hendraempore'
         git config --global user.email 'hendra@empore.co.id'
-        echo ${{ secrets.GH_TOKEN }}
+        echo "${{ secrets.GH_TOKEN }}""
 
     - name: Add Target Repository
       run: git remote add target https://github.com/hendraempore/test-B.git
