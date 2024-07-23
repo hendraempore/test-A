@@ -16,7 +16,7 @@ jobs:
         token: ${{ secrets.GH_TOKEN }}
 
     - name: Add Target Repository
-      run: git remote add target hendraempore/test-A
+      run: git remote add target https://github.com/hendraempore/test-A.git
 
     - name: Fetch and Merge Changes from Target Repository
       run: |
@@ -24,4 +24,4 @@ jobs:
         git merge target/main-B
 
     - name: Push Changes
-      run: git push origin main-B
+      run: git push main-B
