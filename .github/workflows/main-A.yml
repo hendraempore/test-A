@@ -25,4 +25,4 @@ jobs:
       run: |
         git push target main-A
       env:
-        GH_TOKEN: ${{ secrets.TARGET_REPO_PAT }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
