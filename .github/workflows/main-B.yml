@@ -24,4 +24,4 @@ jobs:
         git merge target/main-B
 
     - name: Push Changes
-      run: git push main-B
+      run: git push origin main-B
