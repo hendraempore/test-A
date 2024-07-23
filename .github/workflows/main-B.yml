@@ -11,20 +11,19 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-        repository: hendraempore/test-A
+        repository: hendraempore/test-B
         ref: main-B
+        token: ${{ secrets.GH_TOKEN }}
 
     - name: Add Target Repository
-      run: git remote add target https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-B.git
+      run: git remote add target https://github.com/hendraempore/test-A.git
 
     - name: Fetch and Merge Changes from Target Repository
       run: |
-        git fetch target main-B
-        git checkout target/main-B
-        git merge main-B
+        git merge target/main-B
 
     - name: Push Changes
       run: |
-        git push target main-B
+        git push origin main-B
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
