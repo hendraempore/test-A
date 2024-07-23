@@ -35,7 +35,7 @@ jobs:
       run: |
         git fetch origin-dev main-B
         git checkout origin-dev/main-B
-        git merge origin/main-B --allow-unrelated-histories --strategy=recursive
+        git merge origin/main-B --allow-unrelated-histories --strategy=ours
 
     - name: Push Changes
       run: |
