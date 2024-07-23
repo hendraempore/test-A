@@ -20,6 +20,7 @@ jobs:
 
     - name: Fetch and Merge Changes from Target Repository
       run: |
+        git fetch target main-B
         git merge target/main-B
 
     - name: Push Changes
