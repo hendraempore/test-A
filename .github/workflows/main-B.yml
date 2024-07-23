@@ -10,7 +10,7 @@ jobs:
     - name: Checkout Source Repository
       uses: actions/checkout@v2
       with:
-        repository: hendraempore/test-B
+        repository: hendraempore/test-A
         ref: main-B
 
     - name: Set up Git
@@ -22,16 +22,16 @@ jobs:
       run: git config --unset-all http.https://github.com/.extraheader
 
     - name: Add Target Repository
-      run: git remote add target https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-A.git
+      run: git remote add origin-dev https://hendraempore:${{ secrets.GH_TOKEN }}@github.com/hendraempore/test-B.git
 
     - name: Fetch and Merge Changes from Target Repository
       run: |
-        git fetch target main-B
-        git checkout target/main-B
+        git fetch origin-dev main-B
+        git checkout origin-dev/main-B
         git merge origin/main-B --allow-unrelated-histories
 
     - name: Push Changes
       run: |
-        git push target main-B
+        git push origin-dev main-B
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
