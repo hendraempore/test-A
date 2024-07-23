@@ -3,24 +3,26 @@ on:
   push:
     branches: [ main-A ]
 jobs:
-  synchronization:
+  sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the source repository
-        uses: actions/checkout@v2
+    - name: Checkout Source Repository
+      uses: actions/checkout@v2
+      with:
+        repository: your-username/active-repo
+        ref: main-A
 
-      - name: Set up Git
-        run: |
-          git config user.name "hendraempore"
-          git config user.email "hendra@empore.co.id"
+    - name: Set up Git
+      run: |
+        git config --global user.name 'hendraempore'
+        git config --global user.email 'hendra@empore.co.id'
 
-      - name: Pull latest changes from the source repository
-        run: git pull origin main-A
+    - name: Add Target Repository
+      run: git remote add target https://github.com/hendraempore/test-B.git
 
-      - name: Push changes to another repository
-        env:
-          TARGET_REPO_PAT: ${{ secrets.TARGET_REPO_PAT }}
-        run: |
-          git remote add target https://username:${{ secrets.TARGET_REPO_PAT }}@github.com/hendraempore/test-B.git
-          git push target main-A
+    - name: Push Changes
+      run: |
+        git push target main-A
+      env:
+        GH_TOKEN: ${{ secrets.TARGET_REPO_PAT }}
